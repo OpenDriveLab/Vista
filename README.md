@@ -31,8 +31,8 @@ The official implementation of our new paper:
 
 ## News
 
-- **[2024/05/28]** Release the implemetation of our model.
-- **[2024/05/28]** Share our [paper](https://arxiv.org/abs/2405.xxxxx) on arXiv.
+- **[2024/05/28]** We released the implemetation of our model.
+- **[2024/05/28]** We released our [paper](https://arxiv.org/abs/2405.xxxxx) on arXiv.
 - **[2024/05/27]** Repository initialization.
 
 ## TODO List
@@ -45,7 +45,7 @@ The official implementation of our new paper:
 
 ## Acknowledgement
 
-Our implementation is based on [generative-models](https://github.com/Stability-AI/generative-models) from Stability AI. Thanks for their open-source work.
+Our implementation is based on [generative-models](https://github.com/Stability-AI/generative-models) from Stability AI. Thanks for their open-source work!
 
 ## Citation
 
