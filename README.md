@@ -32,7 +32,7 @@ The official implementation of our new paper:
 
 ## Acknowledgement
 
-Our code is implemented base on [generative-models](https://github.com/Stability-AI/generative-models) from Stability AI. We really appreciate their open-source work.
+Our implementation is based on [generative-models](https://github.com/Stability-AI/generative-models) from Stability AI. Thanks for their open-source work.
 
 ## Citation
 
