@@ -6,7 +6,7 @@ The official implementation of our new paper:
 
 [Shenyuan Gao](https://github.com/Little-Podi), [Jiazhi Yang](https://scholar.google.com/citations?user=Ju7nGX8AAAAJ&hl=en), [Li Chen](https://scholar.google.com/citations?user=ulZxvY0AAAAJ&hl=en), [Kashyap Chitta](https://kashyap7x.github.io/), [Yihang Qiu](https://scholar.google.com/citations?user=qgRUOdIAAAAJ&hl=en), [Andreas Geiger](https://www.cvlibs.net/), [Jun Zhang](https://eejzhang.people.ust.hk/), [Hongyang Li](https://lihongyang.info/)
 
-[[arXiv](https://arxiv.org/abs/2405.xxxxx)] [[video demos](https://vista-demo.github.io/)]
+[[arXiv](https://arxiv.org/abs/2405.17398)] [[video demos](https://vista-demo.github.io/)]
 
 <div id="top" align="center">
 <p align="center">
@@ -32,7 +32,7 @@ The official implementation of our new paper:
 ## News
 
 - **[2024/05/28]** We released the implemetation of our model.
-- **[2024/05/28]** We released our [paper](https://arxiv.org/abs/2405.xxxxx) on arXiv.
+- **[2024/05/28]** We released our [paper](https://arxiv.org/abs/2405.17398) on arXiv.
 - **[2024/05/27]** Repository initialization.
 
 ## TODO List
@@ -55,7 +55,14 @@ If any parts of our paper and code help your research, please consider citing us
 @article{gao2024vista,
  title={Vista: A Generalizable Driving World Model with High Fidelity and Versatile Controllability}, 
  author={Shenyuan Gao and Jiazhi Yang and Li Chen and Kashyap Chitta and Yihang Qiu and Andreas Geiger and Jun Zhang and Hongyang Li},
- journal={arXiv preprint arXiv:2405.xxxxx},
+ journal={arXiv preprint arXiv:2405.17398},
  year={2024}
+}
+
+@inproceedings{yang2024generalized,
+  title={{Generalized Predictive Model for Autonomous Driving}},
+  author={Yang, Jiazhi and Gao, Shenyuan and Qiu, Yihang and Chen, Li and Li, Tianyu and Dai, Bo and Chitta, Kashyap and Wu, Penghao and Zeng, Jia and Luo, Ping and Zhang, Jun and Geiger, Andreas and Qiao, Yu and Li, Hongyang},
+  booktitle=CVPR,
+  year={2024}
 }
 ```
