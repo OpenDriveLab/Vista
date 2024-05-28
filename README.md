@@ -1,6 +1,6 @@
 # Vista
 
-The official implementation of our new paper:
+The official implementation of the paper:
 
 **Vista: A Generalizable Driving World Model with High Fidelity and Versatile Controllability**
 
@@ -21,7 +21,7 @@ The official implementation of our new paper:
 - Predict high-fidelity futures in various scenarios.
 - Extend its predictions to continuous and long horizons.
 - Execute multi-modal actions (steering angles, speeds, commands, trajectories, goal points).
-- Provide rewards for different actions without accessing the ground truth actions.
+- Provide rewards for different actions without accessing ground truth actions.
 
 <div id="top" align="center">
 <p align="center">
@@ -31,17 +31,16 @@ The official implementation of our new paper:
 
 ## News
 
-- **[2024/05/28]** We released the implemetation of our model.
+- **[2024/05/28]** We released the implementation of our model.
 - **[2024/05/28]** We released our [paper](https://arxiv.org/abs/2405.17398) on arXiv.
-- **[2024/05/27]** Repository initialization.
 
 ## TODO List
 
-- [ ] Release the installation, training and sampling scripts (**within one week**).
-- [ ] Release the model weights.
-- [ ] Optimize the configuration of model settings.
-- [ ] Provide more detailed instructions.
-- [ ] Build an online demo for interaction.
+- [ ] Installation, training, and sampling scripts (**within one week**).
+- [ ] Model weights release.
+- [ ] Model configuration optimization.
+- [ ] More detailed instructions.
+- [ ] Online demo for interaction.
 
 ## Acknowledgement
 
@@ -59,10 +58,10 @@ If any parts of our paper and code help your research, please consider citing us
  year={2024}
 }
 
-@inproceedings{yang2024generalized,
+@inproceedings{yang2024genad,
   title={{Generalized Predictive Model for Autonomous Driving}},
   author={Yang, Jiazhi and Gao, Shenyuan and Qiu, Yihang and Chen, Li and Li, Tianyu and Dai, Bo and Chitta, Kashyap and Wu, Penghao and Zeng, Jia and Luo, Ping and Zhang, Jun and Geiger, Andreas and Qiao, Yu and Li, Hongyang},
-  booktitle=CVPR,
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
   year={2024}
 }
 ```
