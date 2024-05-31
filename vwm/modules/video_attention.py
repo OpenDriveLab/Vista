@@ -30,7 +30,9 @@ class VideoTransformerBlock(nn.Module):
             attn_mode="softmax",
             disable_self_attn=False,
             disable_temporal_crossattention=False,
-            switch_temporal_ca_to_sa=False
+            switch_temporal_ca_to_sa=False,
+            add_lora=False,
+            action_control=False
     ):
         super().__init__()
         attn_cls = self.ATTENTION_MODES[attn_mode]
@@ -49,7 +51,6 @@ class VideoTransformerBlock(nn.Module):
 
         self.timesteps = timesteps
         self.disable_self_attn = disable_self_attn
-        add_lora_to_attn1 = True
         if disable_self_attn:
             self.attn1 = attn_cls(
                 query_dim=inner_dim,
@@ -57,7 +58,7 @@ class VideoTransformerBlock(nn.Module):
                 heads=n_heads,
                 dim_head=d_head,
                 dropout=dropout,
-                add_lora=add_lora_to_attn1
+                add_lora=add_lora
             )  # is a cross-attn
         else:
             self.attn1 = attn_cls(
@@ -66,14 +67,13 @@ class VideoTransformerBlock(nn.Module):
                 dim_head=d_head,
                 dropout=dropout,
                 causal=False,
-                add_lora=add_lora_to_attn1
+                add_lora=add_lora
             )  # is a self-attn
 
         self.ff = FeedForward(inner_dim, dim_out=dim, dropout=dropout, glu=gated_ff)
 
         if not disable_temporal_crossattention:
             self.norm2 = nn.LayerNorm(inner_dim)
-            add_lora_to_attn2 = True
             if switch_temporal_ca_to_sa:
                 self.attn2 = attn_cls(
                     query_dim=inner_dim,
@@ -81,7 +81,7 @@ class VideoTransformerBlock(nn.Module):
                     dim_head=d_head,
                     dropout=dropout,
                     causal=False,
-                    add_lora=add_lora_to_attn2
+                    add_lora=add_lora
                 )  # is a self-attn
             else:
                 self.attn2 = attn_cls(
@@ -90,8 +90,8 @@ class VideoTransformerBlock(nn.Module):
                     heads=n_heads,
                     dim_head=d_head,
                     dropout=dropout,
-                    add_lora=add_lora_to_attn2,
-                    action_control=True
+                    add_lora=add_lora,
+                    action_control=action_control
                 )  # is self-attn if context is None
 
         self.norm1 = nn.LayerNorm(inner_dim)
@@ -165,7 +165,9 @@ class SpatialVideoTransformer(SpatialTransformer):
             attn_mode="softmax",
             disable_self_attn=False,
             disable_temporal_crossattention=False,
-            max_time_embed_period=10000
+            max_time_embed_period=10000,
+            add_lora=False,
+            action_control=False
     ):
         super().__init__(
             in_channels,
@@ -177,7 +179,9 @@ class SpatialVideoTransformer(SpatialTransformer):
             use_checkpoint=use_checkpoint,
             context_dim=context_dim,
             use_linear=use_linear,
-            disable_self_attn=disable_self_attn
+            disable_self_attn=disable_self_attn,
+            add_lora=add_lora,
+            action_control=action_control
         )
         self.time_depth = time_depth
         self.depth = depth
@@ -206,7 +210,9 @@ class SpatialVideoTransformer(SpatialTransformer):
                     inner_dim=time_mix_inner_dim,
                     attn_mode=attn_mode,
                     disable_self_attn=disable_self_attn,
-                    disable_temporal_crossattention=disable_temporal_crossattention
+                    disable_temporal_crossattention=disable_temporal_crossattention,
+                    add_lora=add_lora,
+                    action_control=action_control
                 )
                 for _ in range(self.depth)
             ]

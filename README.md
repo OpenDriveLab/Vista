@@ -38,7 +38,6 @@ The official implementation of the paper:
 
 - [ ] Installation, training, and sampling scripts (**within one week**).
 - [ ] Model weights release.
-- [ ] Model configuration optimization.
 - [ ] More detailed instructions.
 - [ ] Online demo for interaction.
 

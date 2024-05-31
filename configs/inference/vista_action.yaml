@@ -37,6 +37,8 @@ model:
         use_spatial_context: True
         merge_strategy: learned_with_images
         video_kernel_size: [ 3, 1, 1 ]
+        add_lora: False
+        action_control: True
 
     conditioner_config:
       target: vwm.modules.GeneralConditioner

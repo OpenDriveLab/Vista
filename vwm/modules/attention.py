@@ -438,7 +438,9 @@ class BasicTransformerBlock(nn.Module):
             use_checkpoint=False,
             disable_self_attn=False,
             attn_mode="softmax",
-            sdp_backend=None
+            sdp_backend=None,
+            add_lora=False,
+            action_control=False
     ):
         super().__init__()
         assert attn_mode in self.ATTENTION_MODES
@@ -470,7 +472,7 @@ class BasicTransformerBlock(nn.Module):
             dim_head=d_head,
             dropout=dropout,
             backend=sdp_backend,
-            add_lora=True
+            add_lora=add_lora
         )  # is a self-attn if not self.disable_self_attn
         self.ff = FeedForward(dim, dropout=dropout, glu=gated_ff)
         self.attn2 = attn_cls(
@@ -480,8 +482,8 @@ class BasicTransformerBlock(nn.Module):
             dim_head=d_head,
             dropout=dropout,
             backend=sdp_backend,
-            add_lora=True,
-            action_control=True
+            add_lora=add_lora,
+            action_control=action_control
         )  # is self-attn if context is None
         self.norm1 = nn.LayerNorm(dim)
         self.norm2 = nn.LayerNorm(dim)
@@ -544,7 +546,9 @@ class SpatialTransformer(nn.Module):
             use_linear=False,
             attn_type="softmax",
             use_checkpoint=False,
-            sdp_backend=None
+            sdp_backend=None,
+            add_lora=False,
+            action_control=False
     ):
         super().__init__()
         print(f"Constructing {self.__class__.__name__} of depth {depth} w/ {in_channels} channels and {n_heads} heads")
@@ -587,7 +591,9 @@ class SpatialTransformer(nn.Module):
                     disable_self_attn=disable_self_attn,
                     attn_mode=attn_type,
                     use_checkpoint=use_checkpoint,
-                    sdp_backend=sdp_backend
+                    sdp_backend=sdp_backend,
+                    add_lora=add_lora,
+                    action_control=action_control
                 )
                 for d in range(depth)
             ]
