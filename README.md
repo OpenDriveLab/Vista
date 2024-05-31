@@ -43,7 +43,7 @@ The official implementation of the paper:
 
 ## Acknowledgement
 
-Our implementation is based on [generative-models](https://github.com/Stability-AI/generative-models) from Stability AI. Thanks for their open-source work!
+Our implementation is based on [generative-models](https://github.com/Stability-AI/generative-models) from Stability AI. Thanks for their open-source work! :heart::heart::heart:
 
 ## Citation
 
@@ -58,7 +58,7 @@ If any parts of our paper and code help your research, please consider citing us
 }
 
 @inproceedings{yang2024genad,
-  title={{Generalized Predictive Model for Autonomous Driving}},
+  title={Generalized Predictive Model for Autonomous Driving},
   author={Jiazhi Yang and Shenyuan Gao and Yihang Qiu and Li Chen and Tianyu Li and Bo Dai and Kashyap Chitta and Penghao Wu and Jia Zeng and Ping Luo and Jun Zhang and Andreas Geiger and Yu Qiao and Hongyang Li},
   booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
   year={2024}
