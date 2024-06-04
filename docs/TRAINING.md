@@ -18,9 +18,9 @@
 
       ```shell
       torchrun \
-      		--nnodes=2 \
-      		--nproc_per_node=8 \
-      		train.py \
+          --nnodes=2 \
+          --nproc_per_node=8 \
+          train.py \
           --base configs/example/nusc_train.yaml \
           --num_nodes 2 \
           --n_devices 8
