@@ -50,7 +50,7 @@
   
     - This phase uses unlabeled OpenDV-YouTube for training.
   
-    - The model is trained at a resolution of 576$\times$1024 on 128 GPUs for 20K iterations with gradient accumulation.
+    - The model is trained at a resolution of 576x1024 on 128 GPUs for 20K iterations with gradient accumulation.
   
       ```shell
       torchrun \
@@ -70,7 +70,7 @@
   
     - ##### Stage 1: low-resolution training
   
-      - The model is finetuned at a resolution of 320$\times$576 on 8 GPUs for 120K iterations.
+      - The model is finetuned at a resolution of 320x576 on 8 GPUs for 120K iterations.
   
         ```shell
         torchrun \
@@ -87,7 +87,7 @@
   
     - ##### Stage 2: high-resolution training
   
-      - The model is finetuned at a resolution of 576$\times$1024 on 8 GPUs for another 10K iterations.
+      - The model is finetuned at a resolution of 576x1024 on 8 GPUs for another 10K iterations.
   
         ```shell
         torchrun \
@@ -105,4 +105,5 @@
 ---
 
 <= Previous: [[Installation](https://github.com/OpenDriveLab/Vista/blob/main/docs/INSTALL.md)]
+
 => Next: [[Sampling](https://github.com/OpenDriveLab/Vista/blob/main/docs/SAMPLING.md)]
