@@ -162,7 +162,7 @@ class Sampler(LightningDataModule):
 
     def test_dataloader(self):
         return DataLoader(
-            self.train_dataset,
+            self.train_dataset,  # we disable online testing to improve training efficiency
             batch_size=self.batch_size,
             shuffle=False,
             num_workers=self.num_workers,

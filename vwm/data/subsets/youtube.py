@@ -4,8 +4,12 @@ from .common import BaseDataset
 
 
 class YouTubeDataset(BaseDataset):
-    def __init__(self, data_root="data/YouTube", anno_file="data/YouTube_vista.json",
+    def __init__(self, data_root="data/YouTube", anno_file="annos/YouTube.json",
                  target_height=320, target_width=576, num_frames=25):
+        if not os.path.exists(data_root):
+            raise ValueError("Cannot find dataset {}".format(data_root))
+        if not os.path.exists(anno_file):
+            raise ValueError("Cannot find annotation {}".format(anno_file))
         super().__init__(data_root, anno_file, target_height, target_width, num_frames)
         print("YouTube loaded:", len(self))
 

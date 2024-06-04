@@ -9,7 +9,7 @@ from vwm.util import append_dims, default
 
 class Guider(ABC):
     @abstractmethod
-    def __call__(self, x: torch.Tensor, sigma: float, cfg: bool) -> torch.Tensor:
+    def __call__(self, x: torch.Tensor, sigma: float) -> torch.Tensor:
         pass
 
     def prepare_inputs(self, x, s, c, cond_mask, uc):
@@ -20,15 +20,10 @@ class VanillaCFG(Guider):
     def __init__(self, scale: float):
         self.scale = scale
 
-    def __call__(self, x: torch.Tensor, sigma: torch.Tensor, cfg: bool) -> torch.Tensor:
-        if cfg:
-            x_u, x_c, x_cf = x.chunk(3)
-            x_pred = x_u + self.scale * (x_c - x_u) + self.scale * (x_cf - x_c)
-            return x_pred
-        else:
-            x_u, x_c = x.chunk(2)
-            x_pred = x_u + self.scale * (x_c - x_u)
-            return x_pred
+    def __call__(self, x: torch.Tensor, sigma: torch.Tensor) -> torch.Tensor:
+        x_u, x_c = x.chunk(2)
+        x_pred = x_u + self.scale * (x_c - x_u)
+        return x_pred
 
     def prepare_inputs(self, x, s, c, cond_mask, uc):
         c_out = dict()
@@ -42,7 +37,7 @@ class VanillaCFG(Guider):
 
 
 class IdentityGuider(Guider):
-    def __call__(self, x: torch.Tensor, sigma: float, cfg: bool) -> torch.Tensor:
+    def __call__(self, x: torch.Tensor, sigma: float) -> torch.Tensor:
         return x
 
     def prepare_inputs(self, x, s, c, cond_mask, uc):
@@ -70,22 +65,13 @@ class LinearPredictionGuider(Guider):
             additional_cond_keys = [additional_cond_keys]
         self.additional_cond_keys = additional_cond_keys
 
-    def __call__(self, x: torch.Tensor, sigma: torch.Tensor, cfg: bool) -> torch.Tensor:
-        if cfg:
-            x_u, x_c, x_cf = x.chunk(3)
-            x_u = rearrange(x_u, "(b t) ... -> b t ...", t=self.num_frames)
-            x_c = rearrange(x_c, "(b t) ... -> b t ...", t=self.num_frames)
-            x_cf = rearrange(x_cf, "(b t) ... -> b t ...", t=self.num_frames)
-            scale = repeat(self.scale, "1 t -> b t", b=x_u.shape[0])
-            scale = append_dims(scale, x_u.ndim).to(x_u.device)
-            return rearrange(x_u + scale * (x_c - x_u) + scale * (x_cf - x_c), "b t ... -> (b t) ...")
-        else:
-            x_u, x_c = x.chunk(2)
-            x_u = rearrange(x_u, "(b t) ... -> b t ...", t=self.num_frames)
-            x_c = rearrange(x_c, "(b t) ... -> b t ...", t=self.num_frames)
-            scale = repeat(self.scale, "1 t -> b t", b=x_u.shape[0])
-            scale = append_dims(scale, x_u.ndim).to(x_u.device)
-            return rearrange(x_u + scale * (x_c - x_u), "b t ... -> (b t) ...")
+    def __call__(self, x: torch.Tensor, sigma: torch.Tensor) -> torch.Tensor:
+        x_u, x_c = x.chunk(2)
+        x_u = rearrange(x_u, "(b t) ... -> b t ...", t=self.num_frames)
+        x_c = rearrange(x_c, "(b t) ... -> b t ...", t=self.num_frames)
+        scale = repeat(self.scale, "1 t -> b t", b=x_u.shape[0])
+        scale = append_dims(scale, x_u.ndim).to(x_u.device)
+        return rearrange(x_u + scale * (x_c - x_u), "b t ... -> (b t) ...")
 
     def prepare_inputs(self, x, s, c, cond_mask, uc):
         c_out = dict()

@@ -14,7 +14,7 @@ The official implementation of the paper:
 </p>
 </div>
 
-## Highlight
+## Highlights
 
 :bookmark: ​**Vista** is a generalizable driving world model that can:
 
@@ -31,19 +31,25 @@ The official implementation of the paper:
 
 ## News
 
+- **[2024/06/04]** We released the installation, training, and sampling scripts.
 - **[2024/05/28]** We released the implementation of our model.
 - **[2024/05/28]** We released our [paper](https://arxiv.org/abs/2405.17398) on arXiv.
 
 ## TODO List
 
-- [ ] Installation, training, and sampling scripts (**within one week**).
-- [ ] Model weights release.
+- [ ] Model weights release (**within one week**).
 - [ ] More detailed instructions.
 - [ ] Online demo for interaction.
 
-## Acknowledgement
+## Get Started
 
-Our implementation is based on [generative-models](https://github.com/Stability-AI/generative-models) from Stability AI. Thanks for their open-source work! :heart::heart::heart:
+- [[Installation](https://github.com/OpenDriveLab/Vista/blob/main/docs/INSTALL.md)]
+
+- [[Training](https://github.com/OpenDriveLab/Vista/blob/main/docs/TRAINING.md)]
+
+- [[Sampling](https://github.com/OpenDriveLab/Vista/blob/main/docs/SAMPLING.md)]
+
+- [[Trouble Shooting](https://github.com/OpenDriveLab/Vista/blob/main/docs/ISSUES.md)]
 
 ## Citation
 
@@ -64,3 +70,7 @@ If any parts of our paper and code help your research, please consider citing us
   year={2024}
 }
 ```
+
+## Acknowledgement
+
+Our implementation is based on [generative-models](https://github.com/Stability-AI/generative-models) from Stability AI. Thanks for their great open-source work!

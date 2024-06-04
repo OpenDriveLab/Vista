@@ -1,5 +1,5 @@
 model:
-  base_learning_rate: 1.e-5
+  base_learning_rate: 5.e-5
   target: vwm.models.diffusion.DiffusionEngine
   params:
     use_ema: True
@@ -8,11 +8,11 @@ model:
     disable_first_stage_autocast: True
     en_and_decode_n_samples_a_time: 1
     num_frames: &num_frames 25
-    slow_spatial_layers: True
-    train_peft_adapters: False
+    slow_spatial_layers: False
+    train_peft_adapters: True
     replace_cond_frames: &replace_cond_frames True
     fixed_cond_frames: # only used for logging images
-      - [ 0, 1, 2 ]
+      - [ 0 ]
 
     denoiser_config:
       target: vwm.modules.diffusionmodules.denoiser.Denoiser
@@ -43,8 +43,8 @@ model:
         use_spatial_context: True
         merge_strategy: learned_with_images
         video_kernel_size: [ 3, 1, 1 ]
-        add_lora: False
-        action_control: False
+        add_lora: True
+        action_control: True
 
     conditioner_config:
       target: vwm.modules.GeneralConditioner
@@ -114,6 +114,51 @@ model:
             target: vwm.modules.encoders.modules.ConcatTimestepEmbedderND
             params:
               outdim: 256
+
+          - input_key: command
+            is_trainable: False
+            ucg_rate: 0.15
+            target: vwm.modules.encoders.modules.ConcatTimestepEmbedderND
+            params:
+              outdim: &action_emb_dim 128
+              num_features: 1
+              add_sequence_dim: True
+
+          - input_key: trajectory
+            is_trainable: False
+            ucg_rate: 0.15
+            target: vwm.modules.encoders.modules.ConcatTimestepEmbedderND
+            params:
+              outdim: *action_emb_dim
+              num_features: 8
+              add_sequence_dim: True
+
+          - input_key: speed
+            is_trainable: False
+            ucg_rate: 0.15
+            target: vwm.modules.encoders.modules.ConcatTimestepEmbedderND
+            params:
+              outdim: *action_emb_dim
+              num_features: 4
+              add_sequence_dim: True
+
+          - input_key: angle
+            is_trainable: False
+            ucg_rate: 0.15
+            target: vwm.modules.encoders.modules.ConcatTimestepEmbedderND
+            params:
+              outdim: *action_emb_dim
+              num_features: 4
+              add_sequence_dim: True
+
+          - input_key: goal
+            is_trainable: False
+            ucg_rate: 0.15
+            target: vwm.modules.encoders.modules.ConcatTimestepEmbedderND
+            params:
+              outdim: *action_emb_dim
+              num_features: 2
+              add_sequence_dim: True
 
     first_stage_config:
       target: vwm.models.autoencoder.AutoencodingEngine
@@ -212,17 +257,19 @@ data:
     num_workers: 16
     subsets:
       - YouTube
+      - NuScenes
     probs:
       - 1
+      - 1
     samples_per_epoch: 256000
-    target_height: 576
-    target_width: 1024
+    target_height: 320
+    target_width: 576
     num_frames: *num_frames
 
 lightning:
   callbacks:
     image_logger:
-      target: main.ImageLogger
+      target: train.ImageLogger
       params:
         num_frames: *num_frames
         disabled: False
@@ -241,7 +288,7 @@ lightning:
     devices: 0,1
     benchmark: True
     num_sanity_val_steps: 0
-    accumulate_grad_batches: 2
+    accumulate_grad_batches: 1
     max_epochs: 100
     strategy: deepspeed_stage_2
     gradient_clip_val: 0.3

@@ -102,6 +102,8 @@ class EulerEDMSampler(SingleStepDiffusionSampler):
         replace_cond_frames = cond_mask is not None and cond_mask.any()
 
         for i in self.get_sigma_gen(num_sigmas):
+            if replace_cond_frames:
+                x = x * append_dims(1 - cond_mask, x.ndim) + cond_frame * append_dims(cond_mask, cond_frame.ndim)
             gamma = (
                 min(self.s_churn / (num_sigmas - 1), 2 ** 0.5 - 1)
                 if self.s_tmin <= sigmas[i] <= self.s_tmax

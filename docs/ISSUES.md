@@ -1,0 +1,36 @@
+## Trouble Shooting
+
+1. #### Out of memory during sampling.
+
+   - Possible reason:
+     - Too many high-resolution frames for parallel decoding.
+
+   - Try this:
+     - Reduce the number of jointly decoded frames *en_and_decode_n_samples_a_time* in `inference/vista.yaml`.
+
+2. #### Get stuck at loading FrozenCLIPEmbedder or FrozenOpenCLIPImageEmbedder.
+
+   - Possible reason:
+     - A network failure.
+
+   - Try this:
+     - Download [openai/clip-vit-large-patch14](https://huggingface.co/openai/clip-vit-large-patch14/tree/main) and [laion/CLIP-ViT-H-14-laion2B-s32B-b79K](https://huggingface.co/laion/CLIP-ViT-H-14-laion2B-s32B-b79K/tree/main) in advance
+     - Set *version* of FrozenCLIPEmbedder and FrozenOpenCLIPImageEmbedder in `vwm/modules/encoders/modules.py` to the new paths of `pytorch_model.bin`.
+
+3. #### Datasets not yet available during training.
+
+   - Possible reason:
+
+     - The installed [sdata](https://github.com/Stability-AI/datapipelines) is not detected.
+
+   - Try this:
+
+     - Reinstall in the current project directory.
+
+       ````shell
+       pip3 install -e git+https://github.com/Stability-AI/datapipelines.git@main#egg=sdata
+       ````
+
+---
+
+<= Previous: [[Sampling](https://github.com/OpenDriveLab/Vista/blob/main/docs/SAMPLING.md)]

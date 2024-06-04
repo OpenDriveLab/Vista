@@ -269,7 +269,7 @@ data:
 lightning:
   callbacks:
     image_logger:
-      target: main.ImageLogger
+      target: train.ImageLogger
       params:
         num_frames: *num_frames
         disabled: False

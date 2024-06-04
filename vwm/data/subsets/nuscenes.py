@@ -29,8 +29,12 @@ def resample_complete_samples(samples, increase_factor=5):
 
 
 class NuScenesDataset(BaseDataset):
-    def __init__(self, data_root="data/nuscenes", anno_file="data/nuScenes_vista.json",
+    def __init__(self, data_root="data/nuscenes", anno_file="annos/nuScenes.json",
                  target_height=320, target_width=576, num_frames=25):
+        if not os.path.exists(data_root):
+            raise ValueError("Cannot find dataset {}".format(data_root))
+        if not os.path.exists(anno_file):
+            raise ValueError("Cannot find annotation {}".format(anno_file))
         super().__init__(data_root, anno_file, target_height, target_width, num_frames)
         print("nuScenes loaded:", len(self))
         self.samples = balance_with_actions(self.samples, increase_factor=5)
@@ -55,9 +59,9 @@ class NuScenesDataset(BaseDataset):
             "cond_aug": cond_aug
         }
         if self.action_mod == 0:
-            data_dict["command"] = torch.tensor(sample_dict["cmd"])
-        elif self.action_mod == 1:
             data_dict["trajectory"] = torch.tensor(sample_dict["traj"][2:])
+        elif self.action_mod == 1:
+            data_dict["command"] = torch.tensor(sample_dict["cmd"])
         elif self.action_mod == 2:
             # scene might be empty
             if sample_dict["speed"]:

@@ -187,7 +187,8 @@ class FrozenCLIPEmbedder(AbstractEmbModel):
 
     def __init__(
             self,
-            version="checkpoints/huggingface/openai/clip-vit-large-patch14/pytorch_model.bin",
+            # version="path_to/openai/clip-vit-large-patch14/pytorch_model.bin",
+            version="openai/clip-vit-large-patch14",
             device="cuda",
             max_length=77,
             freeze=True,
@@ -255,7 +256,8 @@ class FrozenOpenCLIPImageEmbedder(AbstractEmbModel):
     def __init__(
             self,
             arch="ViT-H-14",
-            version="checkpoints/huggingface/laion/CLIP-ViT-H-14-laion2B-s32B-b79K/open_clip_pytorch_model.bin",
+            # version="path_to/laion/CLIP-ViT-H-14-laion2B-s32B-b79K/open_clip_pytorch_model.bin",
+            version="laion2b_s32b_b79k",
             device="cuda",
             max_length=77,
             freeze=True,
