@@ -4,9 +4,9 @@ The official implementation of the paper:
 
 **Vista: A Generalizable Driving World Model with High Fidelity and Versatile Controllability**
 
-[Shenyuan Gao](https://github.com/Little-Podi), [Jiazhi Yang](https://scholar.google.com/citations?user=Ju7nGX8AAAAJ&hl=en), [Li Chen](https://scholar.google.com/citations?user=ulZxvY0AAAAJ&hl=en), [Kashyap Chitta](https://kashyap7x.github.io/), [Yihang Qiu](https://scholar.google.com/citations?user=qgRUOdIAAAAJ&hl=en), [Andreas Geiger](https://www.cvlibs.net/), [Jun Zhang](https://eejzhang.people.ust.hk/), [Hongyang Li](https://lihongyang.info/)
-
-[[arXiv](https://arxiv.org/abs/2405.17398)] [[video demos](https://vista-demo.github.io/)]
+>  [Shenyuan Gao](https://github.com/Little-Podi), [Jiazhi Yang](https://scholar.google.com/citations?user=Ju7nGX8AAAAJ&hl=en), [Li Chen](https://scholar.google.com/citations?user=ulZxvY0AAAAJ&hl=en), [Kashyap Chitta](https://kashyap7x.github.io/), [Yihang Qiu](https://scholar.google.com/citations?user=qgRUOdIAAAAJ&hl=en), [Andreas Geiger](https://www.cvlibs.net/), [Jun Zhang](https://eejzhang.people.ust.hk/), [Hongyang Li](https://lihongyang.info/)
+>
+> 📜 [[arxiv report](https://arxiv.org/abs/2405.17398)], 🎬 [[video demos](https://vista-demo.github.io/)]
 
 <div id="top" align="center">
 <p align="center">
@@ -14,14 +14,14 @@ The official implementation of the paper:
 </p>
 </div>
 
-## Highlights
+## 🔥 Highlights
 
-:bookmark: ​**Vista** is a generalizable driving world model that can:
+**Vista** is a generalizable driving world model that can:
 
-- Predict high-fidelity futures in various scenarios.
-- Extend its predictions to continuous and long horizons.
-- Execute multi-modal actions (steering angles, speeds, commands, trajectories, goal points).
-- Provide rewards for different actions without accessing ground truth actions.
+- *Predict high-fidelity futures in various scenarios*.
+- *Extend its predictions to continuous and long horizons*.
+- *Execute multi-modal actions (steering angles, speeds, commands, trajectories, goal points).*
+- *Provide rewards for different actions without accessing ground truth actions.*
 
 <div id="top" align="center">
 <p align="center">
@@ -29,30 +29,34 @@ The official implementation of the paper:
 </p>
 </div>
 
-## News
+## 📢 News
 
 - **[2024/06/04]** We released the installation, training, and sampling scripts.
 - **[2024/05/28]** We released the implementation of our model.
 - **[2024/05/28]** We released our [paper](https://arxiv.org/abs/2405.17398) on arXiv.
 
-## TODO List
+## 📋 TODO List
 
-- [ ] Model weights release (**within one week**).
+- [ ] Model weights release (**coming soon**).
 - [ ] More detailed instructions.
 - [ ] Memory efficient training and sampling.
 - [ ] Online demo for interaction.
 
-## Get Started
+## 🎮 Getting Started
 
-- [[Installation](https://github.com/OpenDriveLab/Vista/blob/main/docs/INSTALL.md)]
+- [Installation](https://github.com/OpenDriveLab/Vista/blob/main/docs/INSTALL.md)
 
-- [[Training](https://github.com/OpenDriveLab/Vista/blob/main/docs/TRAINING.md)]
+- [Training](https://github.com/OpenDriveLab/Vista/blob/main/docs/TRAINING.md)
 
-- [[Sampling](https://github.com/OpenDriveLab/Vista/blob/main/docs/SAMPLING.md)]
+- [Sampling](https://github.com/OpenDriveLab/Vista/blob/main/docs/SAMPLING.md)
 
-- [[Trouble Shooting](https://github.com/OpenDriveLab/Vista/blob/main/docs/ISSUES.md)]
+- [Trouble Shooting](https://github.com/OpenDriveLab/Vista/blob/main/docs/ISSUES.md)
 
-## Citation
+## ❤️ Acknowledgement
+
+Our implementation is based on [generative-models](https://github.com/Stability-AI/generative-models) from Stability AI. Thanks for their great open-source work!
+
+## 📎 Citation
 
 If any parts of our paper and code help your research, please consider citing us and giving a star to our repository.
 
@@ -72,6 +76,6 @@ If any parts of our paper and code help your research, please consider citing us
 }
 ```
 
-## Acknowledgement
+## 🤝 License
 
-Our implementation is based on [generative-models](https://github.com/Stability-AI/generative-models) from Stability AI. Thanks for their great open-source work!
+All content in this repository are under under the [Apache-2.0 license](https://www.apache.org/licenses/LICENSE-2.0).
