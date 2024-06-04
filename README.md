@@ -56,7 +56,7 @@ The official implementation of the paper:
 
 Our implementation is based on [generative-models](https://github.com/Stability-AI/generative-models) from Stability AI. Thanks for their great open-source work!
 
-## 📎 Citation
+## 🤝 Citation
 
 If any parts of our paper and code help your research, please consider citing us and giving a star to our repository.
 
@@ -76,6 +76,6 @@ If any parts of our paper and code help your research, please consider citing us
 }
 ```
 
-## 🤝 License
+## ⚖️ License
 
 All content in this repository are under the [Apache-2.0 license](https://www.apache.org/licenses/LICENSE-2.0).
