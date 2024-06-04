@@ -39,6 +39,7 @@ The official implementation of the paper:
 
 - [ ] Model weights release (**within one week**).
 - [ ] More detailed instructions.
+- [ ] Memory efficient training and sampling.
 - [ ] Online demo for interaction.
 
 ## Get Started
