@@ -78,4 +78,4 @@ If any parts of our paper and code help your research, please consider citing us
 
 ## 🤝 License
 
-All content in this repository are under under the [Apache-2.0 license](https://www.apache.org/licenses/LICENSE-2.0).
+All content in this repository are under the [Apache-2.0 license](https://www.apache.org/licenses/LICENSE-2.0).
