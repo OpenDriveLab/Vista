@@ -660,6 +660,14 @@ if __name__ == "__main__":
                 else:
                     raise NotImplementedError
             missing, unexpected = model.load_state_dict(svd, strict=False)
+
+            # avoid empty weights when resuming from EMA weights
+            for miss_k in missing:
+                ema_name = miss_k.replace(".", "").replace("modeldiffusion_model", "model_ema.diffusion_model")
+                svd[miss_k] = svd[ema_name]
+                print("Fill", miss_k, "with", ema_name)
+            missing, unexpected = model.load_state_dict(svd, strict=False)
+
             if len(missing) > 0:
                 if not opt.finetune or not os.path.exists(opt.finetune):
                     model.reinit_ema()

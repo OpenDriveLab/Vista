@@ -3,7 +3,7 @@
 1. ### Out of memory during sampling.
 
    - Possible reason:
-     - Too many high-resolution frames for parallel decoding.
+     - Too many high-resolution frames for parallel decoding. The default setting will request ca. 66 GB peak VARM.
 
    - Try this:
      - Reduce the number of jointly decoded frames *en_and_decode_n_samples_a_time* in `inference/vista.yaml`.

@@ -31,18 +31,17 @@ The official implementation of the paper:
 
 ## 📢 News
 
+- **[2024/06/06]** We released the model [weights]().
 - **[2024/06/04]** We released the installation, training, and sampling scripts.
 - **[2024/05/28]** We released the implementation of our model.
 - **[2024/05/28]** We released our [paper](https://arxiv.org/abs/2405.17398) on arXiv.
 
 ## 📋 TODO List
 
-- [ ] Model weights release (**coming soon**).
-- [ ] More detailed instructions.
 - [ ] Memory efficient training and sampling.
 - [ ] Online demo for interaction.
 
-## 🎮 Getting Started
+## 🕹️ Getting Started
 
 - [Installation](https://github.com/OpenDriveLab/Vista/blob/main/docs/INSTALL.md)
 
@@ -56,7 +55,7 @@ The official implementation of the paper:
 
 Our implementation is based on [generative-models](https://github.com/Stability-AI/generative-models) from Stability AI. Thanks for their great open-source work!
 
-## 🤝 Citation
+## ⭐ Citation
 
 If any parts of our paper and code help your research, please consider citing us and giving a star to our repository.
 

@@ -6,7 +6,7 @@
 
 - ### Preparation
 
-  Download the pretrained weights of SVD from [stabilityai/stable-video-diffusion-img2vid-xt/svd_xt.safetensors](https://huggingface.co/stabilityai/stable-video-diffusion-img2vid-xt/blob/main/svd_xt.safetensors) and place the checkpoint into `ckpts`.
+  Download the pretrained `svd_xt.safetensors` from [stabilityai/stable-video-diffusion-img2vid-xt](https://huggingface.co/stabilityai/stable-video-diffusion-img2vid-xt/blob/main/svd_xt.safetensors) and place the checkpoint into `ckpts`.
 
 - ### Training (example)
 
@@ -33,14 +33,18 @@
       ```
 
     > The training logs, including visualization samples and model checkpoints, will be saved in the project directory by default. Given that the size of checkpoints could be very large, you can set another directory to save these logs by providing an available path to `--logdir`.
-
+    >
     > You can disable `--no_test` to test a bunch of samples for every checkpoint, but we recommend evaluating them offline for flexible comparison and uninterrupted training.
 
-  - After training, switch to the log directory with the model checkpoint. You should find a Python script named `zero_to_fp32.py` and a `checkpoint` folder that contains all partitioned checkpoints. The final checkpoint can be obtained by merging these checkpoints:
+  - After training, switch to the log directory with the model checkpoint. You should find a Python script named `zero_to_fp32.py` and a `checkpoint` folder that contains all partitioned checkpoints. The final checkpoint can be obtained by:
 
-    ```shell
-    python zero_to_fp32.py . pytorch_model.bin
-    ```
+    1. [*if you only want to resume training*] Merge the partitioned checkpoints as `pytorch_model.bin` using `zero_to_fp32.py`.
+    
+       ```shell
+       python zero_to_fp32.py . pytorch_model.bin
+       ```
+    
+    2. [*if you also want to do inference*] Navigate into the project root, and use `bin_to_st.py` to convert the resulting `path_to/pytorch_model.bin` to `ckpts/vista.safetensors`.
 
 - ### Training of Vista
 

@@ -2,11 +2,11 @@
 
 - ### Requirement
 
-  Currently, we suggest using Nvidia GPUs with a minimum of **48 GB** VRAM for sampling.
+  Currently, we suggest using Nvidia GPUs with a minimum of **32 GB** VRAM for sampling. Check [ISSUES.md](https://github.com/OpenDriveLab/Vista/blob/main/docs/ISSUES.md) if you do not have enough memory.
 
 - ### Preparation
 
-  Make sure you have prepared (or trained) the checkpoint of Vista. Move (or link) `pytorch_model.bin` into `ckpts`.
+  Make sure you have prepared `vista.safetensors` from [here](). Move (or link) the checkpoint into `ckpts`.
 
 - ### Future Prediction
 
@@ -18,7 +18,6 @@
       python sample.py
       ```
 
-
     - Long-term rollout.
     
       ```shell
@@ -27,9 +26,11 @@
     
     - Action-conditioned simulation (take trajectory as an example).
     
-      ```
+      ```shell
       python sample.py --action traj
       ```
+      
+    > Make sure the loaded checkpoint strictly match all parameters. Otherwise, you may get a sequence of blur.
 
   - Important arguments:
 

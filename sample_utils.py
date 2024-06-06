@@ -64,48 +64,13 @@ def load_model_from_config(config, ckpt=None):
             if "global_step" in pl_svd:
                 print(f"Global step: {pl_svd['global_step']}")
             svd = pl_svd["state_dict"]
-        elif ckpt.endswith("bin"):  # for deepspeed merged checkpoints
-            svd = torch.load(ckpt, map_location="cpu")  # only contains model weights
-
-            for k in list(svd.keys()):  # merge LoRA weights (if exist) for inference
-                if "adapter_down" in k:
-                    if "q_adapter_down" in k:
-                        up_k = k.replace("q_adapter_down", "q_adapter_up")
-                        pretrain_k = k.replace("q_adapter_down", "to_q")
-                    elif "k_adapter_down" in k:
-                        up_k = k.replace("k_adapter_down", "k_adapter_up")
-                        pretrain_k = k.replace("k_adapter_down", "to_k")
-                    elif "v_adapter_down" in k:
-                        up_k = k.replace("v_adapter_down", "v_adapter_up")
-                        pretrain_k = k.replace("v_adapter_down", "to_v")
-                    else:
-                        up_k = k.replace("out_adapter_down", "out_adapter_up")
-                        if "model_ema" in k:
-                            pretrain_k = k.replace("out_adapter_down", "to_out0")
-                        else:
-                            pretrain_k = k.replace("out_adapter_down", "to_out.0")
-
-                    lora_weights = svd[up_k] @ svd[k]
-                    del svd[k]
-                    del svd[up_k]
-                    svd[pretrain_k] = svd[pretrain_k] + lora_weights
-
-            for k in list(svd.keys()):
-                if "_forward_module" in k:
-                    svd[k.replace("_forward_module.", "")] = svd[k]
-                del svd[k]
         elif ckpt.endswith("safetensors"):
             svd = load_safetensors(ckpt)
-            for k in list(svd.keys()):
-                if "time_embed" in k:
-                    svd[k.replace("time_embed", "cond_time_stack_embed")] = svd[k]
         else:
-            raise NotImplementedError
+            raise NotImplementedError("Please convert the checkpoint to safetensors first")
 
         missing, unexpected = model.load_state_dict(svd, strict=False)
         if len(missing) > 0:
-            if ckpt.endswith("safetensors"):
-                model.reinit_ema()
             print(f"Missing keys: {missing}")
         if len(unexpected) > 0:
             print(f"Unexpected keys: {unexpected}")

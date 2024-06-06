@@ -11,7 +11,7 @@ from sample_utils import *
 VERSION2SPECS = {
     "vwm": {
         "config": "configs/inference/vista.yaml",
-        "ckpt": "ckpts/pytorch_model.bin"
+        "ckpt": "ckpts/vista.safetensors"
     }
 }
 
@@ -27,16 +27,6 @@ DATASET2SOURCES = {
 
 
 def parse_args(**parser_kwargs):
-    def str2bool(v):
-        if isinstance(v, bool):
-            return v
-        if v.lower() in ("yes", "true", "t", "y", "1"):
-            return True
-        elif v.lower() in ("no", "false", "f", "n", "0"):
-            return False
-        else:
-            raise argparse.ArgumentTypeError("Boolean value expected")
-
     parser = argparse.ArgumentParser(**parser_kwargs)
     parser.add_argument(
         "--version",
@@ -118,14 +108,12 @@ def parse_args(**parser_kwargs):
     )
     parser.add_argument(
         "--rand_gen",
-        type=str2bool,
-        default=True,
+        action="store_false",
         help="whether to generate samples randomly or sequentially"
     )
     parser.add_argument(
         "--low_vram",
-        type=str2bool,
-        default=False,
+        action="store_true",
         help="whether to save memory or not"
     )
     return parser

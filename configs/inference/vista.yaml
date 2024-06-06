@@ -1,7 +1,6 @@
 model:
   target: vwm.models.diffusion.DiffusionEngine
   params:
-    use_ema: True
     input_key: img_seq
     scale_factor: 0.18215
     disable_first_stage_autocast: True
