@@ -38,6 +38,7 @@ The official implementation of the paper:
 
 ## 📋 TODO List
 
+- [ ] Upload the model to Hugging Face.
 - [ ] Memory efficient training and sampling.
 - [ ] Online demo for interaction.
 
