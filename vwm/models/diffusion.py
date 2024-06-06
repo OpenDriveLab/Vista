@@ -114,7 +114,7 @@ class DiffusionEngine(LightningModule):
             svd = torch.load(path, map_location="cpu")["state_dict"]
         elif path.endswith("bin"):  # for deepspeed merged checkpoints
             svd = torch.load(path, map_location="cpu")
-            for k in list(svd.keys()):
+            for k in list(svd.keys()):  # remove the prefix
                 if "_forward_module" in k:
                     svd[k.replace("_forward_module.", "")] = svd[k]
                 del svd[k]

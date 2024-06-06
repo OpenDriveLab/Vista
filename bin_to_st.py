@@ -30,7 +30,7 @@ for k in list(vista_bin.keys()):  # merge LoRA weights (if exist) for inference
         del vista_bin[up_k]
         vista_bin[pretrain_k] = vista_bin[pretrain_k] + lora_weights
 
-for k in list(vista_bin.keys()):
+for k in list(vista_bin.keys()):  # remove the prefix
     if "_forward_module" in k and "decay" not in k and "num_updates" not in k:
         vista_bin[k.replace("_forward_module.", "")] = vista_bin[k]
     del vista_bin[k]

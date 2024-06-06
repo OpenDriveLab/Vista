@@ -642,7 +642,7 @@ if __name__ == "__main__":
                 print(f"Loading pretrained model from {default_ckpt}")
                 svd = load_safetensors(default_ckpt)
                 for k in list(svd.keys()):
-                    if "time_embed" in k:
+                    if "time_embed" in k:  # duplicate a new timestep embedding from the pretrained weights
                         svd[k.replace("time_embed", "cond_time_stack_embed")] = svd[k]
             else:
                 ckpt_path = opt.finetune
@@ -651,7 +651,7 @@ if __name__ == "__main__":
                     svd = torch.load(ckpt_path, map_location="cpu")["state_dict"]
                 elif ckpt_path.endswith("bin"):  # for deepspeed merged checkpoints
                     svd = torch.load(ckpt_path, map_location="cpu")
-                    for k in list(svd.keys()):
+                    for k in list(svd.keys()):  # remove the prefix
                         if "_forward_module" in k:
                             svd[k.replace("_forward_module.", "")] = svd[k]
                         del svd[k]
