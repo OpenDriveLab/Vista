@@ -6,7 +6,7 @@ The official implementation of the paper:
 
 >  [Shenyuan Gao](https://github.com/Little-Podi), [Jiazhi Yang](https://scholar.google.com/citations?user=Ju7nGX8AAAAJ&hl=en), [Li Chen](https://scholar.google.com/citations?user=ulZxvY0AAAAJ&hl=en), [Kashyap Chitta](https://kashyap7x.github.io/), [Yihang Qiu](https://scholar.google.com/citations?user=qgRUOdIAAAAJ&hl=en), [Andreas Geiger](https://www.cvlibs.net/), [Jun Zhang](https://eejzhang.people.ust.hk/), [Hongyang Li](https://lihongyang.info/)
 >
-> 📜 [[arxiv report](https://arxiv.org/abs/2405.17398)], 🎬 [[video demos](https://vista-demo.github.io/)], 🤗 [[hugging face](https://huggingface.co/OpenDriveLab/Vista)]
+> 📜 [[technical report](https://arxiv.org/abs/2405.17398)], 🎬 [[video demos](https://vista-demo.github.io/)], 🤗 [[model weights](https://huggingface.co/OpenDriveLab/Vista)]
 
 <div id="top" align="center">
 <p align="center">
@@ -31,7 +31,7 @@ The official implementation of the paper:
 
 ## 📢 News
 
-> [!CAUTION]
+> [!IMPORTANT]
 > There is an error in merging the EMA weights of the previously uploaded model. Please download the latest model below.
 
 - **[2024/06/06]** We released the model weights v1.0 at [Hugging Face](https://huggingface.co/OpenDriveLab/Vista/blob/main/vista.safetensors) and [Google Drive](https://drive.google.com/file/d/1bCM7XLDquRqnnpauQAK5j1jP-n0y1ama/view).

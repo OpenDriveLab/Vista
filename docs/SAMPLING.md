@@ -30,7 +30,6 @@
       python sample.py --action traj
       ```
       
-    > [!IMPORTANT]
     > Make sure the loaded checkpoint strictly match all parameters. Otherwise, you may get a sequence of blur.
 
   - Important arguments:
