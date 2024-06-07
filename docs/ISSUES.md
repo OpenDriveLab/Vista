@@ -1,6 +1,6 @@
 ## Trouble Shooting
 
-1. ### Out of memory during sampling.
+1. #### Out of memory during sampling.
 
    - Possible reason:
      - Too many high-resolution frames for parallel decoding. The default setting will request ca. 66 GB peak VARM.
@@ -8,16 +8,16 @@
    - Try this:
      - Reduce the number of jointly decoded frames *en_and_decode_n_samples_a_time* in `inference/vista.yaml`.
 
-2. ### Get stuck at loading FrozenCLIPEmbedder or FrozenOpenCLIPImageEmbedder.
+2. #### Get stuck at loading FrozenCLIPEmbedder or FrozenOpenCLIPImageEmbedder.
 
    - Possible reason:
      - A network failure.
-
+   
    - Try this:
-     - Download [openai/clip-vit-large-patch14](https://huggingface.co/openai/clip-vit-large-patch14/tree/main) and [laion/CLIP-ViT-H-14-laion2B-s32B-b79K](https://huggingface.co/laion/CLIP-ViT-H-14-laion2B-s32B-b79K/tree/main) in advance.
-     - Set *version* of FrozenCLIPEmbedder and FrozenOpenCLIPImageEmbedder in `vwm/modules/encoders/modules.py` to the new paths of `pytorch_model.bin`.
+     1. Download [openai/clip-vit-large-patch14](https://huggingface.co/openai/clip-vit-large-patch14/tree/main) and [laion/CLIP-ViT-H-14-laion2B-s32B-b79K](https://huggingface.co/laion/CLIP-ViT-H-14-laion2B-s32B-b79K/tree/main) in advance.
+     2. Set *version* of FrozenCLIPEmbedder and FrozenOpenCLIPImageEmbedder in `vwm/modules/encoders/modules.py` to the new paths of `pytorch_model.bin`.
 
-3. ### Datasets not yet available during training.
+3. #### Datasets not yet available during training.
 
    - Possible reason:
 

@@ -2,9 +2,7 @@
 
 - ### Requirement
 
-  Our experiments are conducted with **PyTorch 2.0.1**, **CUDA 11.7**, **Ubuntu 22.04**, and **NVIDIA Tesla A100** (80 GB).
-
-  > For other requirements, please check [TRAINING.md](https://github.com/OpenDriveLab/Vista/blob/main/docs/TRAINING.md) and [SAMPLING.md](https://github.com/OpenDriveLab/Vista/blob/main/docs/SAMPLING.md).
+  Our experiments are conducted with **PyTorch 2.0.1**, **CUDA 11.7**, **Ubuntu 22.04**, and **NVIDIA Tesla A100** (80 GB). For other requirements, please check [TRAINING.md](https://github.com/OpenDriveLab/Vista/blob/main/docs/TRAINING.md) and [SAMPLING.md](https://github.com/OpenDriveLab/Vista/blob/main/docs/SAMPLING.md).
 
 - ### Preparation
 

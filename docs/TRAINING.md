@@ -32,9 +32,11 @@
       python train.py --num_nodes 1 --n_devices 1
       ```
 
-    > The training logs, including visualization samples and model checkpoints, will be saved in the project directory by default. Given that the size of checkpoints could be very large, you can set another directory to save these logs by providing an available path to `--logdir`.
-    >
-    > You can disable `--no_test` to test a bunch of samples for every checkpoint, but we recommend evaluating them offline for flexible comparison and uninterrupted training.
+    > [!TIP]
+    > - The training logs, including visualization samples and model checkpoints, will be saved in the project directory by default. Given that the size of checkpoints could be very large, you can set another directory to save these logs by providing an available path to `--logdir`.
+
+    > [!NOTE]
+    > - You can disable `--no_test` to test a bunch of samples for every checkpoint, but we recommend evaluating them offline for flexible comparison and uninterrupted training.
 
   - After training, switch to the log directory with the model checkpoint. You should find a Python script named `zero_to_fp32.py` and a `checkpoint` folder that contains all partitioned checkpoints. The final checkpoint can be obtained by:
 
