@@ -18,7 +18,7 @@
   
   - Downloaded the translated action annotations from [here](https://drive.google.com/drive/folders/1JpZObdR0OXagCbnPZfMSI8vhGLom5pht?usp=sharing) and put the JSON files into `annos`.
     
-  - Downloaded **Trainval** of **Full dataset (v1.0)** to your device following [official instructions](https://www.nuscenes.org/download). After downloading, it should contain:
+  - Downloaded all splits of **Trainval** in **Full dataset (v1.0)** to your device following [official instructions](https://www.nuscenes.org/download). After downloading, it should contain:
 
     ```
     $<your-nusc-data-root>

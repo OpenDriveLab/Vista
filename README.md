@@ -31,7 +31,7 @@ The official implementation of the paper:
 
 ## 📢 News
 
-- **[2024/06/06]** We released the model [weights]().
+- **[2024/06/06]** We released the model [weights](https://drive.google.com/file/d/1SLZWnn5omUu1Q8M53JUur7ltLY2mRp1S/view) v1.0.
 - **[2024/06/04]** We released the installation, training, and sampling scripts.
 - **[2024/05/28]** We released the implementation of our model.
 - **[2024/05/28]** We released our [paper](https://arxiv.org/abs/2405.17398) on arXiv.

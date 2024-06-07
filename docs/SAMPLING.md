@@ -6,7 +6,7 @@
 
 - ### Preparation
 
-  Make sure you have prepared `vista.safetensors` from [here](). Move (or link) the checkpoint into `ckpts`.
+  Make sure you have prepared `vista.safetensors` from [here](https://drive.google.com/file/d/1SLZWnn5omUu1Q8M53JUur7ltLY2mRp1S/view). Move (or link) the checkpoint into `ckpts`.
 
 - ### Future Prediction
 
