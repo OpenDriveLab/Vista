@@ -6,7 +6,7 @@
 
 - ### Preparation
 
-  Make sure you have prepared `vista.safetensors` from [Hugging Face]() or [Google Drive](). Move (or link) the checkpoint into `ckpts`.
+  Make sure you have prepared `vista.safetensors` from [Hugging Face](https://huggingface.co/OpenDriveLab/Vista/blob/main/vista.safetensors) or [Google Drive](). Move (or link) the checkpoint into `ckpts`.
 
 - ### Future Prediction
 

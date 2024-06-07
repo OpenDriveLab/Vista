@@ -6,7 +6,7 @@
 
 - ### Preparation
 
-  Download the pretrained `svd_xt.safetensors` from [stabilityai/stable-video-diffusion-img2vid-xt](https://huggingface.co/stabilityai/stable-video-diffusion-img2vid-xt/blob/main/svd_xt.safetensors) and place the checkpoint into `ckpts`.
+  Download the pretrained `svd_xt.safetensors` from [Hugging Face](https://huggingface.co/stabilityai/stable-video-diffusion-img2vid-xt/blob/main/svd_xt.safetensors) and place the checkpoint into `ckpts`.
 
 - ### Training (example)
 

@@ -32,9 +32,9 @@ The official implementation of the paper:
 ## 📢 News
 
 > [!Warning]
-> There is an error in merging the EMA weights. Please download the latest model below.
+> There is an error in merging the EMA weights of the previously uploaded model. Please download the latest model below.
 
-- **[2024/06/06]** We released the model weights v1.0 at [Hugging Face]() and [Google Drive]().
+- **[2024/06/06]** We released the model weights v1.0 at [Hugging Face](https://huggingface.co/OpenDriveLab/Vista/blob/main/vista.safetensors) and [Google Drive]().
 - **[2024/06/04]** We released the installation, training, and sampling scripts.
 - **[2024/05/28]** We released the implementation of our model.
 - **[2024/05/28]** We released our [paper](https://arxiv.org/abs/2405.17398) on arXiv.
