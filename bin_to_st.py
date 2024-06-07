@@ -46,7 +46,7 @@ for k in list(vista_bin.keys()):  # combine EMA weights
         del vista_bin[k]
         print("Replace", orig_k, "with", k)
 
-vista_st = {}
+vista_st = dict()
 for k in list(vista_bin.keys()):
     vista_st[k] = vista_bin[k]
 

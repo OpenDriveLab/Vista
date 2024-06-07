@@ -31,14 +31,16 @@ The official implementation of the paper:
 
 ## 📢 News
 
-- **[2024/06/06]** We released the model [weights](https://drive.google.com/file/d/1SLZWnn5omUu1Q8M53JUur7ltLY2mRp1S/view) v1.0.
+> [!Warning]
+> There is an error in merging the EMA weights. Please download the latest model below.
+
+- **[2024/06/06]** We released the model weights v1.0 at [Hugging Face]() and [Google Drive]().
 - **[2024/06/04]** We released the installation, training, and sampling scripts.
 - **[2024/05/28]** We released the implementation of our model.
 - **[2024/05/28]** We released our [paper](https://arxiv.org/abs/2405.17398) on arXiv.
 
 ## 📋 TODO List
 
-- [ ] Upload the model to Hugging Face.
 - [ ] Memory efficient training and sampling.
 - [ ] Online demo for interaction.
 
