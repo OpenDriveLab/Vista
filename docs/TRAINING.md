@@ -29,7 +29,7 @@
     - Single GPU debugging (too slow, not recommended for training).
 
       ```shell
-      python train.py --num_nodes 1 --n_devices 1
+      python train.py --base configs/example/nusc_train.yaml --num_nodes 1 --n_devices 1
       ```
 
     > The training logs, including visualization samples and model checkpoints, will be saved in the project directory by default. Given that the size of checkpoints could be very large, you can set another directory to save these logs by providing an available path to `--logdir`.
