@@ -41,6 +41,7 @@ The official implementation of the paper:
 
 ## 📋 TODO List
 
+- [ ] New model weights trained with larger batch size.
 - [ ] Memory efficient training and sampling.
 - [ ] Online demo for interaction.
 
