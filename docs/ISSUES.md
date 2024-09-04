@@ -15,7 +15,7 @@
 
    - Try this:
      1. Download [openai/clip-vit-large-patch14](https://huggingface.co/openai/clip-vit-large-patch14/tree/main) and [laion/CLIP-ViT-H-14-laion2B-s32B-b79K](https://huggingface.co/laion/CLIP-ViT-H-14-laion2B-s32B-b79K/tree/main) in advance.
-     2. Set *version* of FrozenCLIPEmbedder and FrozenOpenCLIPImageEmbedder in `vwm/modules/encoders/modules.py` to the new paths of `pytorch_model.bin`.
+     2. Set *version* of FrozenCLIPEmbedder and FrozenOpenCLIPImageEmbedder in `vwm/modules/encoders/modules.py` to the new paths of `pytorch_model.bin`/`open_clip_pytorch_model.bin`.
 
 3. #### Datasets not yet available during training.
 
