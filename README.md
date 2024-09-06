@@ -6,7 +6,7 @@ The official implementation of the paper:
 
 >  [Shenyuan Gao](https://github.com/Little-Podi), [Jiazhi Yang](https://scholar.google.com/citations?user=Ju7nGX8AAAAJ&hl=en), [Li Chen](https://scholar.google.com/citations?user=ulZxvY0AAAAJ&hl=en), [Kashyap Chitta](https://kashyap7x.github.io/), [Yihang Qiu](https://scholar.google.com/citations?user=qgRUOdIAAAAJ&hl=en), [Andreas Geiger](https://www.cvlibs.net/), [Jun Zhang](https://eejzhang.people.ust.hk/), [Hongyang Li](https://lihongyang.info/)
 >
-> 📜 [[technical report](https://arxiv.org/abs/2405.17398)], 🎬 [[video demos](https://vista-demo.github.io/)], 🤗 [[model weights](https://huggingface.co/OpenDriveLab/Vista)]
+> 📜 [[technical report](https://arxiv.org/abs/2405.17398)], 🎬 [[video demos](https://vista-demo.github.io/)], 🤗 [[model weights](https://huggingface.co/OpenDriveLab/Vista)], 🗃️ [[OpenDV dataset](https://github.com/OpenDriveLab/DriveAGI?tab=readme-ov-file#opendv)]
 
 <div id="top" align="center">
 <p align="center">
