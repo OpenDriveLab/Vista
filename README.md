@@ -14,6 +14,8 @@ The official implementation of the paper:
 </p>
 </div>
 
+> Simulated futures in a wide range of driving scenarios by [Vista](https://arxiv.org/abs/2405.17398). Best viewed on [demo page](https://vista-demo.github.io/).
+
 ## 🔥 Highlights
 
 **Vista** is a generalizable driving world model that can:
