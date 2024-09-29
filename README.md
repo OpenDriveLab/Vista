@@ -1,6 +1,6 @@
 # Vista
 
-The official implementation of the paper:
+The official implementation of our **NeurIPS 2024** paper:
 
 **Vista: A Generalizable Driving World Model with High Fidelity and Versatile Controllability**
 
@@ -66,10 +66,10 @@ Our implementation is based on [generative-models](https://github.com/Stability-
 If any parts of our paper and code help your research, please consider citing us and giving a star to our repository.
 
 ```bibtex
-@article{gao2024vista,
+@inproceedings{gao2024vista,
  title={Vista: A Generalizable Driving World Model with High Fidelity and Versatile Controllability}, 
  author={Shenyuan Gao and Jiazhi Yang and Li Chen and Kashyap Chitta and Yihang Qiu and Andreas Geiger and Jun Zhang and Hongyang Li},
- journal={arXiv preprint arXiv:2405.17398},
+ booktitle={Advances in Neural Information Processing Systems (NeuIPS)},
  year={2024}
 }
 
