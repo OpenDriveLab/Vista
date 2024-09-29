@@ -826,7 +826,7 @@ if __name__ == "__main__":
         # lightning still takes care of proper multiprocessing though
         data.prepare_data()
         # data.setup()
-        print("#### Data #####")
+        print("##### Data #####")
         try:
             for k in data.datasets:
                 print(

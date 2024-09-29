@@ -31,6 +31,7 @@ class AbstractAutoencoder(LightningModule):
         super().__init__()
         self.input_key = input_key
         self.use_ema = ema_decay is not None
+
         if monitor is not None:
             self.monitor = monitor
 
@@ -393,7 +394,7 @@ class AutoencodingEngine(AbstractAutoencoder):
     @torch.no_grad()
     def log_images(
             self, batch: dict, additional_log_kwargs: Optional[Dict] = None, **kwargs
-    ) -> dict:
+    ) -> Dict:
         log = dict()
         additional_decode_kwargs = dict()
         x = self.get_input(batch)
