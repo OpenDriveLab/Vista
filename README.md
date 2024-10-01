@@ -69,7 +69,7 @@ If any parts of our paper and code help your research, please consider citing us
 @inproceedings{gao2024vista,
  title={Vista: A Generalizable Driving World Model with High Fidelity and Versatile Controllability}, 
  author={Shenyuan Gao and Jiazhi Yang and Li Chen and Kashyap Chitta and Yihang Qiu and Andreas Geiger and Jun Zhang and Hongyang Li},
- booktitle={Advances in Neural Information Processing Systems (NeuIPS)},
+ booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
  year={2024}
 }
 
