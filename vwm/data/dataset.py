@@ -1,86 +1,9 @@
 import random
-from typing import Optional
 
-import torchdata.datapipes.iter
-import webdataset as wds
-from omegaconf import DictConfig
 from pytorch_lightning import LightningDataModule
 from torch.utils.data import DataLoader, Dataset
 
 from .subsets import YouTubeDataset, NuScenesDataset
-
-try:
-    from sdata import create_dataset, create_dummy_dataset, create_loader
-except ImportError as e:
-    print("#" * 100)
-    print("Datasets not yet available")
-    print("To enable, we need to add stable-datasets as a submodule")
-    print("Please use ``git submodule update --init --recursive``")
-    print("and do ``pip install -e stable-datasets/`` from the root of this repo")
-    print("#" * 100)
-    exit(1)
-
-
-class StableDataModuleFromConfig(LightningDataModule):
-    def __init__(
-            self,
-            train: DictConfig,
-            validation: Optional[DictConfig] = None,
-            test: Optional[DictConfig] = None,
-            skip_val_loader: bool = False,
-            dummy: bool = False
-    ):
-        super().__init__()
-        self.train_config = train
-        assert (
-                "datapipeline" in self.train_config and "loader" in self.train_config
-        ), "Train config requires the fields `datapipeline` and `loader`"
-
-        self.val_config = validation
-        if not skip_val_loader:
-            if self.val_config is not None:
-                assert (
-                        "datapipeline" in self.val_config and "loader" in self.val_config
-                ), "Validation config requires the fields `datapipeline` and `loader`"
-            else:
-                print(
-                    "WARNING: no validation datapipeline defined, using that one from training"
-                )
-                self.val_config = train
-
-        self.test_config = test
-        if self.test_config is not None:
-            assert (
-                    "datapipeline" in self.test_config and "loader" in self.test_config
-            ), "Test config requires the fields `datapipeline` and `loader`"
-
-        self.dummy = dummy
-        if self.dummy:
-            print("#" * 100)
-            print("Using dummy dataset, hope you are debugging")
-            print("#" * 100)
-
-    def setup(self, stage: str) -> None:
-        print("Preparing datasets")
-        if self.dummy:
-            data_fn = create_dummy_dataset
-        else:
-            data_fn = create_dataset
-
-        self.train_data_pipeline = data_fn(**self.train_config.datapipeline)
-        if self.val_config:
-            self.val_data_pipeline = data_fn(**self.val_config.datapipeline)
-        if self.test_config:
-            self.test_data_pipeline = data_fn(**self.test_config.datapipeline)
-
-    def train_dataloader(self) -> torchdata.datapipes.iter.IterDataPipe:
-        return create_loader(self.train_data_pipeline, **self.train_config.loader)
-
-    def val_dataloader(self) -> wds.DataPipeline:
-        return create_loader(self.val_data_pipeline, **self.val_config.loader)
-
-    def test_dataloader(self) -> wds.DataPipeline:
-        return create_loader(self.test_data_pipeline, **self.test_config.loader)
 
 
 def dataset_mapping(subset_list: list, target_height: int, target_width: int, num_frames: int):

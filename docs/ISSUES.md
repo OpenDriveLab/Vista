@@ -17,21 +17,7 @@
      1. Download [openai/clip-vit-large-patch14](https://huggingface.co/openai/clip-vit-large-patch14/tree/main) and [laion/CLIP-ViT-H-14-laion2B-s32B-b79K](https://huggingface.co/laion/CLIP-ViT-H-14-laion2B-s32B-b79K/tree/main) in advance.
      2. Set *version* of FrozenCLIPEmbedder and FrozenOpenCLIPImageEmbedder in `vwm/modules/encoders/modules.py` to the new paths of `pytorch_model.bin`/`open_clip_pytorch_model.bin`.
 
-3. #### Datasets not yet available during training.
-
-   - Possible reason:
-
-     - The installed [sdata](https://github.com/Stability-AI/datapipelines) is not detected.
-
-   - Try this:
-
-     - Reinstall in the current project directory.
-
-       ````shell
-       pip3 install -e git+https://github.com/Stability-AI/datapipelines.git@main#egg=sdata
-       ````
-
-4. #### The shapes of linear layers cannot be multiplied at the cross-attention layers.
+3. #### The shapes of linear layers cannot be multiplied at the cross-attention layers.
 
    - Possible reason:
      - The dimension of cross-attention is not expended while the action conditions are injected, resulting in a mismatch.
