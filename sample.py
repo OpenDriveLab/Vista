@@ -108,7 +108,7 @@ def parse_args(**parser_kwargs):
     )
     parser.add_argument(
         "--rand_gen",
-        action="store_false",
+        action="store_true",
         help="whether to generate samples randomly or sequentially"
     )
     parser.add_argument(
