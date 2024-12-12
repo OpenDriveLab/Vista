@@ -6,7 +6,7 @@ The official implementation of our **NeurIPS 2024** paper:
 
 >  [Shenyuan Gao](https://github.com/Little-Podi), [Jiazhi Yang](https://scholar.google.com/citations?user=Ju7nGX8AAAAJ&hl=en), [Li Chen](https://scholar.google.com/citations?user=ulZxvY0AAAAJ&hl=en), [Kashyap Chitta](https://kashyap7x.github.io/), [Yihang Qiu](https://scholar.google.com/citations?user=qgRUOdIAAAAJ&hl=en), [Andreas Geiger](https://www.cvlibs.net/), [Jun Zhang](https://eejzhang.people.ust.hk/), [Hongyang Li](https://lihongyang.info/)
 >
-> 📜 [[technical report](https://arxiv.org/abs/2405.17398)], 🎬 [[video demos](https://vista-demo.github.io/)], 🤗 [[model weights](https://huggingface.co/OpenDriveLab/Vista)], 🗃️ [[OpenDV dataset](https://github.com/OpenDriveLab/DriveAGI?tab=readme-ov-file#opendv)], 📖 [[blog](https://medium.com/@opendrivelab/towards-next-level-of-autonomous-driving-via-world-models-aff0eb7fee00)]
+> 📜 [[technical report](https://arxiv.org/abs/2405.17398)], 🎬 [[video demos](https://vista-demo.github.io/)], 🤗 [[model weights](https://huggingface.co/OpenDriveLab/Vista)], 🗃️ [[OpenDV dataset](https://github.com/OpenDriveLab/DriveAGI?tab=readme-ov-file#opendv)], 🪧 [[poster](assets/nips24_vista_poster.png)]
 
 <div id="top" align="center">
 <p align="center">
