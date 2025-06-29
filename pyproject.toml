@@ -1,0 +1,128 @@
+[tool.poetry]
+name = "vista-vwm"
+version = "0.1.0"
+description = "VISTA: Generalizable World Model with Scaling Up Autonomous Driving Data"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+license = "MIT"
+packages = [{include = "vwm"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+torch = ">=2.0.1"
+torchvision = "*"
+torchaudio = "*"
+numpy = "*"
+av = "*"
+black = "23.7.0"
+clip = {git = "https://github.com/openai/CLIP.git"}
+deepspeed = "*"
+diffusers = "*"
+ftfy = "*"
+imageio = "*"
+imageio-ffmpeg = "*"
+kornia = "*"
+matplotlib = "*"
+nuscenes-devkit = "*"
+omegaconf = "*"
+opencv-python = "*"
+pandas = "*"
+pillow = "*"
+pytorch-lightning = "*"
+regex = "*"
+scipy = "*"
+tensorboardx = "*"
+timm = "*"
+torchdata = "*"
+torchmetrics = "*"
+tqdm = "*"
+transformers = "*"
+trimesh = "*"
+wandb = "*"
+webdataset = "*"
+xformers = "*"
+einops = "*"
+beartype = "*"
+scikit-image = "*"
+scikit-video = "*"
+h5py = "*"
+lpips = "*"
+safetensors = "*"
+urllib3 = "<1.27,>=1.25.4"
+torchdiffeq = "*"
+controlnet-aux = "*"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+pytest-cov = "^4.1.0"
+pytest-mock = "^3.11.0"
+
+[tool.poetry.scripts]
+test = "pytest:main"
+tests = "pytest:main"
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = [
+    "-ra",
+    "--strict-markers",
+    "--cov=vwm",
+    "--cov-branch",
+    "--cov-report=term-missing:skip-covered",
+    "--cov-report=html:htmlcov",
+    "--cov-report=xml:coverage.xml",
+    "--cov-fail-under=80",
+    "-vv"
+]
+markers = [
+    "unit: Unit tests",
+    "integration: Integration tests",
+    "slow: Tests that take a long time to run"
+]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning"
+]
+
+[tool.coverage.run]
+source = ["vwm"]
+branch = true
+parallel = true
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "*/__init__.py",
+    "*/setup.py",
+    "*/conftest.py"
+]
+
+[tool.coverage.report]
+precision = 2
+show_missing = true
+skip_covered = false
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if TYPE_CHECKING:",
+    "if __name__ == .__main__.:",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if False:",
+    "@abstractmethod",
+    "@abc.abstractmethod"
+]
+
+[tool.coverage.html]
+directory = "htmlcov"
+
+[tool.coverage.xml]
+output = "coverage.xml"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
