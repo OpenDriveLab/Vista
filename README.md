@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> 🌟 Stay up to date at [opendrivelab.com](https://opendrivelab.com/#news)!
+
 # Vista
 
 The official implementation of our **NeurIPS 2024** paper:
