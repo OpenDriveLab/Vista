@@ -46,7 +46,7 @@ The official implementation of our **NeurIPS 2024** paper:
 
 ## 📋 TODO List
 
-- [ ] New model weights trained with a larger batch size ane more iterations.
+- [ ] New model weights trained with a larger batch size and more iterations.
 - [ ] Memory efficient training and sampling.
 - [ ] Online demo for interaction.
 
